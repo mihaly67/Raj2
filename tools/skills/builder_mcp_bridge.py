@@ -13,7 +13,7 @@ from mcp.client.stdio import stdio_client
 
 # -- BIZTONSÁGI SZABÁLYOK (A "PALACK NYAKA") --
 # A Builder csak itt garázdálkodhat:
-BUILDER_JAIL_DIR = "/home/misi/Jules_mx/temp/builder_jail"
+BUILDER_JAIL_DIR = "/home/misi/Jules_ICA_Builder"
 
 # Tiltott bash parancsok regex (szóhatárokkal, hogy ne blokkolja a "success"-t a s u miatt)
 BANNED_COMMANDS_REGEX = re.compile(r'\b(sudo|su|systemctl|reboot|shutdown|kill|pkill|killall|mkfs)\b')
@@ -71,8 +71,8 @@ async def run_builder_client(tool_name, args_dict):
         args=[
             "-o", "StrictHostKeyChecking=no",
             f"misi@{os.environ.get('VPS_HOST', '5.189.163.88')}",
-            "/home/misi/Jules_mx/venv/bin/python3",
-            "/home/misi/Jules_mx/tools/skills/vps_mcp_server.py"
+            "/home/misi/Jules_ICA_Builder/venv/bin/python3",
+            "/home/misi/Jules_ICA_Builder/tools/skills/vps_mcp_server.py"
         ],
         env=os.environ.copy()
     )
